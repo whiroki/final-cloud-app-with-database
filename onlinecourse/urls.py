@@ -1,6 +1,7 @@
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib import admin
 from . import views
 
 app_name = 'onlinecourse'
@@ -16,7 +17,7 @@ urlpatterns = [
     path('<int:pk>/', views.CourseDetailView.as_view(), name='course_details'),
     # ex: /enroll/5/
     path('<int:course_id>/enroll/', views.enroll, name='enroll'),
-
+    path('admin/', admin.site.urls),
     # <HINT> Create a route for submit view
     path('<int:course_id>/submit/', views.submit, name = 'submit'),
     # <HINT> Create a route for show_exam_result view
