@@ -86,18 +86,7 @@
             </form> 
             <!--Check here to see more details Bootstrap checkbox
             https://www.w3schools.com/bootstrap4/bootstrap_forms_inputs.asp-->
-            {% else %}
-            <li>
-                <form class="form-inline" action="{% url 'onlinecourse:login' %}" method="post">
-                    {% csrf_token %}
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Username" name="username" >
-                        <input type="password" class="form-control" placeholder="Username" name="psw" >
-                        <button class="btn btn-primary" type="submit">Login</button>
-                        <a class="btn btn-link" href="{% url 'onlinecourse:registration' %}">Sign Up</a>
-                    </div>
-                 </form>
-            </li>
+            
             {% endif %}
         </div>
     </div>
