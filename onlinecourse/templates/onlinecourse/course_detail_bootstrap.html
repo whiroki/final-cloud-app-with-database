@@ -64,23 +64,24 @@
             <input type="check" name="choice_{{choice.id}}" id="{{choice.id}}" ...>
             -->
             <!-- A choice submission form example-->
-            <form id="questionform" action="submit/" method="post">
-                <!--... for each question in the course ...-->
-                {% for question in course.question_set.all %}
+            <br>
+            <form id="questionform" action="submit/" method="post" style='width:500px; margin:auto'>
+            <div class="card-columns-vertical">
+                {% for question in course.question_set.all %}                
                 <div class="card mt-1">
                     <div class="card-header"><h5>{{ question.question_text}}</h5></div>
                     {% csrf_token %}
-                    <div class="form-group">
-                        <!--... for each choice in the question ...-->
-                        {% for choice in question.choice_set.all %}
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="checkbox" name="choice_{{choice.id}}"
-                                    class="form-check-input" id="{{choice.id}}"
-                                    value="{{choice.id}}">{{ choice.choice_text }}
-                            </label>
-                        </div>
-                        {% endfor %}
+                    <div class="form-group" style='padding: 20px;'>
+                            {% for choice in question.choice_set.all %}                                
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" name="choice_{{choice.id}}"
+                                           class="form-check-input" id="{{choice.id}}"
+                                           value="{{choice.id}}">{{ choice.choice_text }}
+                                </label>
+                            </div>
+                            {% endfor %}
+                            <br />
                     </div>
                 </div>
                 {% endfor %}
