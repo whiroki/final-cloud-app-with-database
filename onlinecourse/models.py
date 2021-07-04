@@ -107,7 +107,7 @@ class Question(models.Model):
     # question text
     question_text = models.TextField()
     # question grade/mark
-    grade = models.IntergerField()
+    grade = models.IntegerField()
     # <HINT> A sample model method to calculate if learner get the score of the question
     def is_get_score(self, selected_ids):
         all_answers = self.choice_set.filter(is_correct=True).count()
