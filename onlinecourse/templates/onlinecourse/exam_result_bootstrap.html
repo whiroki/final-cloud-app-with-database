@@ -52,7 +52,8 @@
         <h5 class="">Exam results</h5>
             <!--HINT Display exam results-->
             <!--... for each question in the course ...-->
-            {% for question in course.question_set.all|dictsort:"lesson.order" %}
+            {% for lesson in course.lesson_set.all %}
+            {% for question in lesson.question_set.all %}
             <div class="card mt-1">
                 <div class="card-header"><h5 style="font-weight:bold">{{ question.question_text}}</h5></div>
                 <div class="form-group">
@@ -68,6 +69,7 @@
                     {% endfor %}
                 </div>
             </div>
+            {% endfor %}
             {% endfor %}
         </div>
     </div>
