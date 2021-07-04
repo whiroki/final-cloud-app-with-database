@@ -124,7 +124,7 @@ def submit(request, course_id):
     course = get_object_or_404(Course, pk=course_id)
     enroll = Enrollment.objects.filter(user=user, course=course).get()
     choices = extract_answers(request)
-    submission = Submission.objects.create(enrollment_id = enrollment.id )
+    submission = Submission.objects.create(enrollment_id = enroll.id )
     for choice in choices:
         c = Choice.objects.filter(id = int(choice)).get()
         submission.choices.add(c)
