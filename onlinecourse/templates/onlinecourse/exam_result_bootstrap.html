@@ -62,18 +62,19 @@
                     {% with correct_c=0 %}
                     {% for choice in question.choice_set.all %}
                     <div class="form-check">
+                        {{ selected }}
                         {% if choice in selected %}
                             {% if choice.is_correct == True %}
                                 <label style="color:#2ea94a;font-weight:bold">Correct answer: {{choice.choice_text}}</label>
                             {% else %}
                                 <label style="color:red;font-weight:bold">Wrong answer: {{choice.choice_text}}</label>
                             {% endif %}
-                            {{ count|add:1 }}
+                            {% with count=count|add:1 %}
                         {% else %}
                             <label>{{choice.choice_text}}</label>
                         {% endif %}
                         {% if choice.is_correct == True %}
-                            {{ correct_c|add:1 }}
+                            {% with correct_c=correct_c|add:1 %}
                         {% endif %}
                     </div>
                     {% endfor %}
@@ -83,8 +84,8 @@
                     {% if count > 0 and count < correct_c %}
                         <label style="color:red;font-weight:bold">You didn't select all the correct answer!</label>
                     {% endif %}
-                    {% endwith %}
-                    {% endwith %}
+                    {% endwith %}{% endwith %}
+                    {% endwith %}{% endwith %}
                 </div>
             </div>
             {% endfor %}
