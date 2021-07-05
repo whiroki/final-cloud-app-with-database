@@ -66,25 +66,11 @@
                             {% else %}
                                 <label style="color:red;font-weight:bold">Wrong answer: {{choice.choice_text}}</label>
                             {% endif %}
-                            {{ Count.incre }}
                         {% else %}
                             <label>{{choice.choice_text}}</label>
                         {% endif %}
-                        {% if choice.is_correct == True %}
-                            {{ Cor.add }}
-                        {% endif %}
                     </div>
                     {% endfor %}
-                    {% if Count.count == '0' %}
-                        <label style="color:red;font-weight:bold">You didn't select any answer!</label>
-                    {% endif %}
-                    {% if Count.count > '0' and Count.count < Cor.cor %}
-                        <label style="color:red;font-weight:bold">You didn't select all the correct answer!</label>
-                    {% endif %}
-                    {% if Count.count > Cor.cor %}
-                        <label style="color:red;font-weight:bold">You selected more answer than needed!</label>
-                    {% endif %}
-                    {{ Count.setzero }}{{ Cor.resetter }}
                 </div>
             </div>
             {% endfor %}
