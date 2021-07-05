@@ -143,10 +143,13 @@ class Submission(models.Model):
 
 class Count(models.Model):
     count = 0
-    def incre_c (self):
+    def incre(self):
         self.count += 1
+        return ''
         
 class Cor(models.Model):
     cor = 0
-    def add_c(self):
+    def add(self):
         self.cor += 1
+        return ''
+
