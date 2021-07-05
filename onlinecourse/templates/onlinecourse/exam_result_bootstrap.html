@@ -68,12 +68,12 @@
                             {% else %}
                                 <label style="color:red;font-weight:bold">Wrong answer: {{choice.choice_text}}</label>
                             {% endif %}
-                            {% count|add:"1" %}
+                            {{ count|add:1 }}
                         {% else %}
                             <label>{{choice.choice_text}}</label>
                         {% endif %}
                         {% if choice.is_correct == True %}
-                            {% correct_c|add:"1" %}
+                            {{ correct_c|add:1 }}
                         {% endif %}
                     </div>
                     {% endfor %}
