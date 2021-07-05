@@ -75,11 +75,14 @@
                         {% endif %}
                     </div>
                     {% endfor %}
-                    {% if Count.count == 0 %}
+                    {% if int(Count.count) == 0 %}
                         <label style="color:red;font-weight:bold">You didn't select any answer!</label>
                     {% endif %}
-                    {% if Count.count > 0 and Count.count < Cor.cor %}
+                    {% if int(Count.count) > 0 and int(Count.count) < int(Cor.cor) %}
                         <label style="color:red;font-weight:bold">You didn't select all the correct answer!</label>
+                    {% endif %}
+                    {% if int(Count.count) > int(Cor.cor) %}
+                        <label style="color:red;font-weight:bold">You selected more answer than needed!</label>
                     {% endif %}
                     {{ Count.setzero }}{{ Cor.resetter }}
                 </div>
