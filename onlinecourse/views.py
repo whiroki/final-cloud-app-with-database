@@ -141,10 +141,10 @@ def show_exam_result(request, course_id, submission_id):
     context = {}
     course = Course.objects.get(id = course_id)
     submit = Submission.objects.get(id = submission_id)
+    selected = submit.objects.values_list('choices',flat = True)
     score = 0
     for i in submit.choices.all().filter(is_correct=True).values_list('question_id'):
-        score += Question.objects.filter(id=i[0]).first().grade
-    selected = submit.objects.values_list('choices')
+        score += Question.objects.filter(id=i[0]).first().grade    
     context['selected'] = selected
     context['grade'] = score
     context['course'] = course
