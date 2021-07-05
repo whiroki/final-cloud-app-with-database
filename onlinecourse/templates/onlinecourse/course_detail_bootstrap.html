@@ -52,8 +52,10 @@
         </div>
             <!-- Task: show questions and choices -->
             <!-- <HINT> Use Bootstrap Collapse to hide exam first, more details could be found here
-            https://www.w3schools.com/bootstrap4/bootstrap_collapse.asp-->            
-        <button data-toggle="collapse" data-target="#exam">Examination</button>            
+            https://www.w3schools.com/bootstrap4/bootstrap_collapse.asp-->
+        <br>
+        <center><button data-toggle="collapse" data-target="#exam">Examination</button></center>
+        <br>
         <div id="exam" class="collapse">
             {% if user.is_authenticated %}
             <!-- <HINT> If user is authenticated, show course exam with a list of question -->
@@ -71,7 +73,7 @@
                 <div class="card mt-1">
                     <div class="card-header"><h5>{{ question.question_text}}</h5></div>
                     {% csrf_token %}
-                    <div class="form-group">
+                    <div class="form-group"  style='padding: 20px;'>
                         <!--... for each choice in the question ...-->
                         {% for choice in question.choice_set.all %}
                         <div class="form-check">
