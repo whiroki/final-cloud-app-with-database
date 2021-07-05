@@ -81,6 +81,7 @@
                     {% if Count.count > 0 and Count.count < Cor.cor %}
                         <label style="color:red;font-weight:bold">You didn't select all the correct answer!</label>
                     {% endif %}
+                    {{ Count.setzero }}{{ Cor.resetter }}
                 </div>
             </div>
             {% endfor %}
