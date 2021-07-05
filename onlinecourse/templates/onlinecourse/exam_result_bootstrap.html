@@ -59,6 +59,7 @@
                 <div class="form-group">
                 <!--... for each choice in the question  choice_{{choice.id}}...-->
                     {% count = 0 %}
+                    {% correct_c = 0 %}
                     {% for choice in question.choice_set.all %}
                     <div class="form-check">
                         {% if choice in selected %}
@@ -71,10 +72,16 @@
                         {% else %}
                             <label>{{choice.choice_text}}</label>
                         {% endif %}
+                        {% if choice.is_correct == True %}
+                            {% correct_c += 1 %}
+                        {% endif %}
                     </div>
                     {% endfor %}
                     {% if count == 0 %}
                         <label style="color:red;font-weight:bold">You didn't select any answer!</label>
+                    {% endif %}
+                    {% if count > 0 and count < correct_c %}
+                        <label style="color:red;font-weight:bold">You didn't select all the correct answer!</label>
                     {% endif %}
                 </div>
             </div>
