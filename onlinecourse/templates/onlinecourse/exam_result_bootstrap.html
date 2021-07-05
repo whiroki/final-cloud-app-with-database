@@ -60,8 +60,12 @@
                 <!--... for each choice in the question  choice_{{choice.id}}...-->
                     {% for choice in question.choice_set.all %}
                     <div class="form-check">
-                        {% if choice.is_correct == True %}
-                            <label style="color:#2ea94a;font-weight:bold">Correct answer: {{choice.choice_text}}</label>
+                        {% if choice in selected %}
+                            {% if choice.is_correct == True %}
+                                <label style="color:#2ea94a;font-weight:bold">Correct answer: {{choice.choice_text}}</label>
+                            {% else %}
+                                <label style="color:red;font-weight:bold">Wrong answer: {{choice.choice_text}}</label>
+                            {% endif %}
                         {% else %}
                             <label>{{choice.choice_text}}</label>
                         {% endif %}
