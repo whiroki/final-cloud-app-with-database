@@ -146,10 +146,16 @@ class Count(models.Model):
     def incre(self):
         self.count += 1
         return ''
+    def setzero(self):
+        self.count = 0
+        return ''
         
 class Cor(models.Model):
     cor = 0
     def add(self):
         self.cor += 1
+        return ''
+    def resetter(self):
+        self.cor = 0
         return ''
 
