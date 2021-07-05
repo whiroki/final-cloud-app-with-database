@@ -62,7 +62,6 @@
                     {% with correct_c=0 %}
                     {% for choice in question.choice_set.all %}
                     <div class="form-check">
-                        {{ selected }}
                         {% if choice in selected %}
                             {% if choice.is_correct == True %}
                                 <label style="color:#2ea94a;font-weight:bold">Correct answer: {{choice.choice_text}}</label>
