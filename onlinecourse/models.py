@@ -140,22 +140,3 @@ class Submission(models.Model):
     enrollment = models.ForeignKey(Enrollment, on_delete=models.CASCADE)
     choices = models.ManyToManyField(Choice)
 #    Other fields and methods you would like to design
-
-class Count(models.Model):
-    count = 0
-    def incre(self):
-        self.count += 1
-        return ''
-    def setzero(self):
-        self.count = 0
-        return ''
-        
-class Cor(models.Model):
-    cor = 0
-    def add(self):
-        self.cor += 1
-        return ''
-    def resetter(self):
-        self.cor = 0
-        return ''
-
