@@ -58,6 +58,7 @@
                 <div class="card-header"><h5 style="font-weight:bold">{{ question.question_text}}</h5></div>
                 <div class="form-group">
                 <!--... for each choice in the question  choice_{{choice.id}}...-->
+                    {% count = 0 %}
                     {% for choice in question.choice_set.all %}
                     <div class="form-check">
                         {% if choice in selected %}
@@ -66,11 +67,15 @@
                             {% else %}
                                 <label style="color:red;font-weight:bold">Wrong answer: {{choice.choice_text}}</label>
                             {% endif %}
+                            {% count += 1 %}
                         {% else %}
                             <label>{{choice.choice_text}}</label>
                         {% endif %}
                     </div>
                     {% endfor %}
+                    {% if count == 0 %}
+                        <label style="color:red;font-weight:bold">You didn't select any answer!</label>
+                    {% endif %}
                 </div>
             </div>
             {% endfor %}
